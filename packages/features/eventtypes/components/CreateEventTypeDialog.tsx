@@ -70,7 +70,6 @@ const querySchema = z.object({
 
 export default function CreateEventTypeDialog({
   profileOptions,
-  isInfiniteScrollEnabled,
 }: {
   profileOptions: {
     teamId: number | null | undefined;
@@ -78,7 +77,6 @@ export default function CreateEventTypeDialog({
     image: string | undefined;
     membershipRole: MembershipRole | null | undefined;
   }[];
-  isInfiniteScrollEnabled: boolean;
 }) {
   const utils = trpc.useUtils();
   const { t } = useLocale();
@@ -120,14 +118,10 @@ export default function CreateEventTypeDialog({
     onSuccess: async ({ eventType }) => {
       await router.replace(`/event-types/${eventType.id}${teamId ? "?tabName=team" : ""}`);
 
-      if (isInfiniteScrollEnabled) {
-        await utils.viewer.eventTypes.getEventTypesFromGroup.fetchInfinite({
-          group: { teamId: eventType.teamId, parentId: eventType.parentId },
-          limit: 10,
-        });
-      } else {
-        await utils.viewer.eventTypes.getByViewer.invalidate();
-      }
+      await utils.viewer.eventTypes.getEventTypesFromGroup.fetchInfinite({
+        group: { teamId: eventType.teamId, parentId: eventType.parentId },
+        limit: 10,
+      });
 
       showToast(
         t("event_type_created_successfully", {
