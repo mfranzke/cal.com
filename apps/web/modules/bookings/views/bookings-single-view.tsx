@@ -67,7 +67,7 @@ import RejectBooking from "@calcom/web/components/booking/RejectBooking";
 import EventReservationSchema from "@calcom/web/components/schemas/EventReservationSchema";
 import { timeZone } from "@calcom/web/lib/clock";
 
-import type { PageProps } from "./bookings-single-view.getServerSideProps";
+import { type PageProps } from "@lib/booking/getServerSideProps";
 
 const stringToBoolean = z
   .string()
