@@ -5,7 +5,7 @@ import PageWrapper from "@components/PageWrapper";
 import { validStatuses } from "~/bookings/lib/validStatuses";
 import BookingsListingView from "~/bookings/views/bookings-listing-view";
 
-export { getStaticProps } from "~/bookings/views/bookings-listing-view.getStaticProps";
+export { getStaticProps } from "@lib/bookings/getStaticProps";
 
 const BookingsListingPage = new Proxy<{
   (): JSX.Element;

@@ -5,9 +5,10 @@ import type { InferGetStaticPropsType } from "next";
 
 import { APP_NAME } from "@calcom/lib/constants";
 
+import { getStaticProps } from "@lib/bookings/getStaticProps";
+
 import { validStatuses } from "~/bookings/lib/validStatuses";
 import Page from "~/bookings/views/bookings-listing-view";
-import { getStaticProps } from "~/bookings/views/bookings-listing-view.getStaticProps";
 
 type Y = InferGetStaticPropsType<typeof getStaticProps>;
 const getData = withAppDirSsg<Y>(getStaticProps);
