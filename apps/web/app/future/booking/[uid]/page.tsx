@@ -6,10 +6,10 @@ import { cookies, headers } from "next/headers";
 
 import { BookingStatus } from "@calcom/prisma/enums";
 
+import { getServerSideProps, type PageProps } from "@lib/booking/getServerSideProps";
 import { buildLegacyCtx } from "@lib/buildLegacyCtx";
 
 import OldPage from "~/bookings/views/bookings-single-view";
-import { getServerSideProps, type PageProps } from "~/bookings/views/bookings-single-view.getServerSideProps";
 
 export const generateMetadata = async ({
   params,

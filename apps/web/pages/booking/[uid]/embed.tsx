@@ -1,6 +1,5 @@
+import { getServerSideProps as _getServerSideProps } from "@lib/booking/getServerSideProps";
 import withEmbedSsr from "@lib/withEmbedSsr";
-
-import { getServerSideProps as _getServerSideProps } from "~/bookings/views/bookings-single-view.getServerSideProps";
 
 export { default } from "~/bookings/views/bookings-single-view";
 
