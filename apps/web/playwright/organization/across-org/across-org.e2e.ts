@@ -50,7 +50,7 @@ test.describe("user1NotMemberOfOrg1 is part of team1MemberOfOrg1", () => {
     await page.waitForLoadState("networkidle");
 
     const userEventLinksLocators = await page
-      .locator(`[data-testid=slug-${user1NotMemberOfOrg1.username}] [data-testid="preview-link-button"]`)
+      .locator(`[data-testid="event-types"] [data-testid="preview-link-button"]`)
       .all();
 
     expect(userEventLinksLocators.length).toBeGreaterThan(0);
@@ -60,8 +60,10 @@ test.describe("user1NotMemberOfOrg1 is part of team1MemberOfOrg1", () => {
       expect(href).toContain(WEBAPP_URL);
     }
 
+    await page.getByTestId(`horizontal-tab-${team1MemberOfOrg1?.name}`).click();
+
     const teamEventLinksLocators = await page
-      .locator(`[data-testid=slug-${team1MemberOfOrg1.slug}] [data-testid="preview-link-button"]`)
+      .locator(`[data-testid="event-types"] [data-testid="preview-link-button"]`)
       .all();
 
     expect(teamEventLinksLocators.length).toBeGreaterThan(0);
