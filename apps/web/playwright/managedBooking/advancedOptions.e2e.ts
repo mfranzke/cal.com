@@ -8,7 +8,11 @@ test.beforeEach(async ({ page, users, bookingPage }) => {
   );
   await userFixture.apiLogin();
 
+  const teamMembership = await userFixture.getFirstTeamMembership();
+
   await page.goto("/event-types");
+  await page.getByTestId(`horizontal-tab-${teamMembership.team.name}`).click();
+
   await bookingPage.goToEventType(teamEventTitle);
   await page.getByTestId("location-select").click();
   await page.locator(`text="Cal Video (Global)"`).click();

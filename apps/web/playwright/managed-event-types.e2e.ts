@@ -79,6 +79,8 @@ test.describe("Managed Event Types", () => {
       // Coming back as team owner to assign member user to managed event
       await adminUser.apiLogin();
       await page.goto("/event-types");
+
+      await page.getByTestId(`horizontal-tab-${adminUser.username}'s Team`).click();
       await page.getByTestId("event-types").locator('a[title="managed"]').click();
       await page.getByTestId("vertical-tab-assignment").click();
       await page.getByTestId("assignment-dropdown").click();

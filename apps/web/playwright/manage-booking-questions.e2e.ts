@@ -246,6 +246,7 @@ test.describe("Manage Booking Questions", () => {
         },
         select: {
           id: true,
+          name: true,
         },
       });
 
@@ -253,7 +254,10 @@ test.describe("Manage Booking Questions", () => {
       const webhookReceiver = await addWebhook(undefined, teamId);
 
       await test.step("Go to First Team Event", async () => {
-        const $eventTypes = page.locator("[data-testid=event-types]").nth(1).locator("li a");
+        await page.getByTestId(`horizontal-tab-${team.name}`).click();
+        await page.waitForLoadState("networkidle");
+
+        const $eventTypes = page.locator("[data-testid=event-types]").locator("li a");
         const firstEventTypeElement = $eventTypes.first();
 
         await firstEventTypeElement.click();
