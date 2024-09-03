@@ -114,6 +114,7 @@ test.describe("Managed Event Types", () => {
       await memberUser.apiLogin();
       await page.goto("/event-types");
 
+      await page.getByTestId(`horizontal-tab-${adminUser.username}'s Team`).click();
       await page.getByTestId("event-types").locator('a[title="managed"]').click();
       await page.waitForURL("event-types/**");
 
@@ -128,6 +129,7 @@ test.describe("Managed Event Types", () => {
       await adminUser.apiLogin();
       await page.goto("/event-types");
 
+      await page.getByTestId(`horizontal-tab-${adminUser.username}'s Team`).click();
       await page.getByTestId("event-types").locator('a[title="managed"]').click();
       await page.waitForURL("event-types/**");
 
@@ -152,6 +154,7 @@ test.describe("Managed Event Types", () => {
       await memberUser.apiLogin();
       await page.goto("/event-types");
 
+      await page.getByTestId(`horizontal-tab-${adminUser.username}'s Team`).click();
       await page.getByTestId("event-types").locator('a[title="managed"]').click();
       await page.waitForURL("event-types/**");
 
@@ -165,6 +168,7 @@ test.describe("Managed Event Types", () => {
       await memberUser.apiLogin();
       await page.goto("/event-types");
 
+      await page.getByTestId(`horizontal-tab-${adminUser.username}'s Team`).click();
       await page.getByTestId("event-types").locator('a[title="managed"]').click();
       await page.waitForURL("event-types/**");
 
@@ -179,6 +183,8 @@ test.describe("Managed Event Types", () => {
 
       await adminUser.apiLogin();
       await page.goto("/event-types");
+
+      await page.getByTestId(`horizontal-tab-${adminUser.username}'s Team`).click();
       await page.getByTestId("event-types").locator('a[title="managed"]').click();
       await page.waitForURL("event-types/**");
 
@@ -193,6 +199,7 @@ test.describe("Managed Event Types", () => {
       await memberUser.apiLogin();
       await page.goto("/event-types");
 
+      await page.getByTestId(`horizontal-tab-${adminUser.username}'s Team`).click();
       await page.getByTestId("event-types").locator('a[title="Managed Event Title"]').click();
       await page.waitForURL("event-types/**");
 
