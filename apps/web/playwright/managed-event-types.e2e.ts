@@ -168,7 +168,6 @@ test.describe("Managed Event Types", () => {
       await memberUser.apiLogin();
       await page.goto("/event-types");
 
-      await page.getByTestId(`horizontal-tab-${adminUser.username}'s Team`).click();
       await page.getByTestId("event-types").locator('a[title="managed"]').click();
       await page.waitForURL("event-types/**");
 
