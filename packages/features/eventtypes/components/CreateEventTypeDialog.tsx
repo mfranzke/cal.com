@@ -113,10 +113,7 @@ export default function CreateEventTypeDialog({
     );
   };
 
-  const { form, createMutation, isManagedEventType } = useCreateEventType(
-    onSuccessMutation,
-    onErrorMutation
-  );
+  const { form, createMutation, isManagedEventType } = useCreateEventType(onSuccessMutation, onErrorMutation);
 
   const { register } = form;
   const urlPrefix = orgBranding?.fullDomain ?? process.env.NEXT_PUBLIC_WEBSITE_URL;
@@ -146,7 +143,6 @@ export default function CreateEventTypeDialog({
             SubmitButton={SubmitButton}
             onSuccessMutation={onSuccessMutation}
             onErrorMutation={onErrorMutation}
-            isInfiniteScrollEnabled={isInfiniteScrollEnabled}
           />
         ) : (
           <Form
