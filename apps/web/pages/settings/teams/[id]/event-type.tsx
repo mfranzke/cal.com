@@ -45,7 +45,6 @@ export const CreateTeamEventType = () => {
       SubmitButton={SubmitButton}
       onSuccessMutation={onSuccessMutation}
       onErrorMutation={onErrorMutation}
-      isInfiniteScrollEnabled={false}
     />
   );
 };
