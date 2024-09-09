@@ -25,7 +25,7 @@ import { MemberInvitationModalWithoutMembers } from "../components/MemberInvitat
 import MemberListItem from "../components/MemberListItem";
 import TeamInviteList from "../components/TeamInviteList";
 
-type Team = RouterOutputs["viewer"]["teams"]["getMinimal"];
+type Team = RouterOutputs["viewer"]["teams"]["get"];
 
 interface MembersListProps {
   team: Team;
@@ -151,7 +151,7 @@ const MembersView = () => {
     data: team,
     isPending: isTeamsLoading,
     error: teamError,
-  } = trpc.viewer.teams.getMinimal.useQuery(
+  } = trpc.viewer.teams.get.useQuery(
     { teamId },
     {
       enabled: !!teamId,

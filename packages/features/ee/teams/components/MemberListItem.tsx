@@ -32,7 +32,7 @@ import TeamAvailabilityModal from "./TeamAvailabilityModal";
 import TeamPill, { TeamRole } from "./TeamPill";
 
 interface Props {
-  team: NonNullable<RouterOutputs["viewer"]["teams"]["getMinimal"]>;
+  team: NonNullable<RouterOutputs["viewer"]["teams"]["get"]>;
   member: RouterOutputs["viewer"]["teams"]["lazyLoadMembers"]["members"][number];
   isOrgAdminOrOwner: boolean | undefined;
   searchTerm: string;
